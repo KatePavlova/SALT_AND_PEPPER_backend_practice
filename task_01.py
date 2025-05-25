@@ -2,7 +2,7 @@ import re
 
 def is_palindrome(string):
     string = str(string)
-    new_string = re.sub(r'([\s\W_])', '', string.lower())
+    new_string = re.sub(r'([\W_])', '', string.lower())
     return new_string == new_string[::-1]
 
 '''

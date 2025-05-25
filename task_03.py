@@ -15,7 +15,7 @@ def max_odd(array = None):
 
 
 
-
+'''
 print(max_odd([21.0, 2, 3, 4, 4]))                           # => 21
 print(max_odd(['ololo', 2, 3, 4, [1, 2], None]))             # => 3
 print(max_odd(['ololo', 'fufufu']))                          # => None
@@ -24,3 +24,4 @@ print(max_odd([[2, 2, 4]]))                                  # => None
 print(max_odd([False, True]))                                # => None
 print(max_odd([]))                                           # => None
 print(max_odd([21.01, 2, 3, 4, 4]))                          # => 3
+'''

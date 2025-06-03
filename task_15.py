@@ -85,7 +85,7 @@ class BlockTranspositionCipher:
                 text = text.ljust(cnt_block * sz_block)
 
         sorted_key = sorted(key)
-
+        
         self.__text = text
         self.__decrypt = decrypt
         self.__size_text = len(text)

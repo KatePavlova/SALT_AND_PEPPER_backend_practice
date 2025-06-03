@@ -1,8 +1,8 @@
 
 class Dessert:
-    def __init__(self, name = None, calories = None):
-        self.__name = name if type(name) is str else None
-        self.__calories = calories if type(calories) in (int, float) and calories >= 0 else None
+    def __init__(self, name = None, calories = 0):
+        self.__name = name
+        self.__calories = calories
 
     @property
     def name(self):
@@ -10,7 +10,7 @@ class Dessert:
 
     @name.setter
     def name(self, name):
-        self.__name = name if type(name) is str else None
+        self.__name = name
 
     @property
     def calories(self):
@@ -18,21 +18,21 @@ class Dessert:
 
     @calories.setter
     def calories(self, calories):
-        self.__calories = calories if type(calories) in (int, float) and calories >= 0 else None
+        self.__calories = calories
 
     def is_healthy(self):
-        if self.__calories is None:
-            return None
-        return self.__calories < 200
+        if type(self.__calories) in (int, float) and self.__calories < 200:
+            return True
+        return False
 
     def is_delicious(self):
         return True
 
 
 class JellyBean(Dessert):
-    def __init__(self, name = None, calories = None, flavor = None):
+    def __init__(self, name = None, calories = 0, flavor = None):
         super().__init__(name, calories)
-        self.__flavor = flavor if type(flavor) is str else None
+        self.__flavor = flavor
 
     @property
     def flavor(self):
@@ -40,12 +40,12 @@ class JellyBean(Dessert):
 
     @flavor.setter
     def flavor(self, flavor):
-        self.__flavor = flavor if type(flavor) is str else None
+        self.__flavor = flavor
 
     def is_delicious(self):
-        if self.__flavor is None or self.__flavor.lower() != "black licorice":
-            return super().is_delicious()
-        return False
+        if type(self.__flavor) is str and self.__flavor.lower() == "black licorice":
+            return False
+        return super().is_delicious()
 
 
 if __name__ == "__main__":
@@ -56,8 +56,8 @@ if __name__ == "__main__":
     jelly_bean.name = []
     jelly_bean.calories = "apple"
     jelly_bean.flavor = "Black licorice"
-    print(jelly_bean.is_healthy())                                            # => None
+    print(jelly_bean.is_healthy())                                            # => False
     print(jelly_bean.is_delicious())                                          # => False
-    print(jelly_bean.name, jelly_bean.calories, jelly_bean.flavor)            # => None None Black licorice
+    print(jelly_bean.name, jelly_bean.calories, jelly_bean.flavor)            # => [] apple Black licorice
     jelly_bean = JellyBean()
-    print(jelly_bean.name, jelly_bean.calories, jelly_bean.flavor)            # => None None None
+    print(jelly_bean.name, jelly_bean.calories, jelly_bean.flavor)            # => None 0 None

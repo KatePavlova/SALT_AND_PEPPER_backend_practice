@@ -1,8 +1,8 @@
 
 class Dessert:
     def __init__(self, name = None, calories = None):
-        self.__name = name if type(name) is str else None
-        self.__calories = calories if type(calories) in (int, float) and calories >= 0 else None
+        self.__name = name
+        self.__calories = calories
 
     @property
     def name(self):
@@ -10,7 +10,7 @@ class Dessert:
 
     @name.setter
     def name(self, name):
-        self.__name = name if type(name) is str else None
+        self.__name = name
 
     @property
     def calories(self):
@@ -18,12 +18,12 @@ class Dessert:
 
     @calories.setter
     def calories(self, calories):
-        self.__calories = calories if type(calories) in (int, float) and calories >= 0 else None
+        self.__calories = calories
 
     def is_healthy(self):
-        if self.__calories is None:
-            return None
-        return self.__calories < 200
+        if type(self.__calories) in (int, float) and self.__calories < 200:
+            return True
+        return False
 
     def is_delicious(self):
         return True
@@ -36,8 +36,8 @@ if __name__ == "__main__":
     print(dessert.name, dessert.calories)              # => meringue 234.4
     dessert.name = []
     dessert.calories = "apple"
-    print(dessert.is_healthy())                        # => None
+    print(dessert.is_healthy())                        # => False
     print(dessert.is_delicious())                      # => True
-    print(dessert.name, dessert.calories)              # => None None
+    print(dessert.name, dessert.calories)              # => [] apple
     dessert = Dessert()
     print(dessert.name, dessert.calories)              # => None None

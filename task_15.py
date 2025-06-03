@@ -30,7 +30,7 @@ class BlockTranspositionCipher:
         self.__size_block = len(key)
         self.__current = 0
         self.__num_of_blocks = cnt_block
-        self.__key = [item[1] for item in sorted(zip(key, range(sz_block)), key = lambda x: x[0])]
+        self.__key = [sorted(key).index(k) for k in key]
 
     def __iter__(self):
         self.__current = 0
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     text = "HELLOWORLD"
     key = "bAc"
-
+    
     print("Процесс шифрования по блокам:")
     cipher = BlockTranspositionCipher(text, key)
     for i, encrypted_block in enumerate(cipher, 1):
@@ -87,5 +87,4 @@ if __name__ == "__main__":
 
     decrypted = ''.join(decipher)
     print(f"\nПолный расшифрованный текст: '{decrypted}'")
-
 

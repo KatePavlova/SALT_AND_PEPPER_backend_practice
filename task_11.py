@@ -40,4 +40,4 @@ if __name__ == "__main__":
     print(dessert.is_delicious())                      # => True
     print(dessert.name, dessert.calories)              # => [] apple
     dessert = Dessert()
-    print(dessert.name, dessert.calories)              # => None None
+    print(dessert.name, dessert.calories)              # => None 0

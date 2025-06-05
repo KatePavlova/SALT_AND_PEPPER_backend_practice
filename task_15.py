@@ -3,9 +3,9 @@ class BlockTranspositionCipher:
         if type(text) is not str:
             raise ValueError("Attribute text expects a string value, not a {0}".format(type(text)))
         if type(key) is not str:
-            raise ValueError("Attribute key expects a string value, not a {0}".format(type(text)))
+            raise ValueError("Attribute key expects a string value, not a {0}".format(type(key)))
         if type(decrypt) is not bool:
-            raise ValueError("Attribute decrypt expects a boolean value, not a {0}".format(type(text)))
+            raise ValueError("Attribute decrypt expects a boolean value, not a {0}".format(type(decrypt)))
 
         key = key.lower()
 
